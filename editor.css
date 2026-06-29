@@ -1,0 +1,43 @@
+:root { --line: #bbb; }            /* cor de borda usada também por estilos inline do JS */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0; height: 100vh; font-family: sans-serif; font-size: 13px;
+    display: grid;                    /* layout em grade: 3 colunas e 2 linhas */
+    grid-template-columns: 200px 1fr 240px;   /* esquerda | centro | direita */
+    grid-template-rows: 40px 1fr;             /* barra de cima | resto */
+}
+
+header { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px;
+    padding: 0 10px; border-bottom: 1px solid var(--line); }
+header h1 { margin: 0; font-size: 15px; }
+
+aside { overflow-y: auto; padding: 8px; }
+aside.left  { border-right: 1px solid var(--line); }
+aside.right { border-left: 1px solid var(--line); }
+
+#viewport { position: relative; overflow: hidden; }
+#cena { width: 100%; height: 100%; display: block; background: #222; } /* o 3D é desenhado aqui */
+.overlay { position: absolute; left: 8px; bottom: 8px; font-size: 11px; color: #555; }
+
+/* faixa de erro */
+#erro { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 9;
+    background: #fdd; color: #900; padding: 6px 10px; }
+
+.label { font-weight: bold; margin: 10px 0 4px; }
+.hint  { color: #888; }
+
+/* itens do catálogo e da lista da cena */
+.item { display: flex; align-items: center; justify-content: space-between; gap: 6px;
+    border: 1px solid var(--line); padding: 5px; margin-bottom: 4px; cursor: pointer; }
+.item.active { background: #ffd; }     /* selecionado */
+.item small { color: #888; }
+
+.btn { cursor: pointer; padding: 5px 8px; }
+.btn.danger { color: #900; }
+
+/* controles do inspetor (sliders, etc.) */
+.field { margin-bottom: 8px; }
+.field > span { display: flex; justify-content: space-between; }
+.field input[type=range] { width: 100%; }
+.group { border-top: 1px solid var(--line); padding-top: 6px; margin-top: 6px; }

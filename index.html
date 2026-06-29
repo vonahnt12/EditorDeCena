@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Editor de cena · OBJ</title>
+  <!-- biblioteca TWGL (precisa carregar antes do editor.js) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twgl.js/4.19.5/twgl-full.min.js"></script>
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+<div id="erro"></div>
+
+<header>
+  <h1>Editor de cena</h1>
+  <button class="btn" onclick="salvarCena()">Salvar cena</button>
+  <button class="btn" onclick="carregarCena()">Carregar cena</button>
+  <span class="hint" id="status">iniciando...</span>
+</header>
+
+<aside class="left">
+  <div class="label">Catálogo (modelos)</div>
+  <div id="catalogo"><div class="hint">Carregue arquivos .obj.</div></div>
+  <div class="label" style="margin-top:18px">Objetos na cena</div>
+  <div id="listaCena"><div class="hint">Clique num modelo do catálogo.</div></div>
+</aside>
+
+<div id="viewport">
+  <canvas id="cena"></canvas>
+  <div class="overlay">
+    arraste no vazio = girar câmera · scroll = zoom<br>
+    selecione um objeto na lista à esquerda · tecla Delete = remover
+  </div>
+</div>
+
+<aside class="right">
+  <div class="label">Inspetor</div>
+  <div id="inspetor"><div class="hint">Selecione um objeto na cena.</div></div>
+</aside>
+
+<script src="editor.js"></script>
+</body>
+</html>
